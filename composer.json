@@ -1,0 +1,21 @@
+{
+  "name": "drupal/dic-module",
+  "description": "Provides the Dependency Injection Container module.",
+  "type": "drupal-module",
+  "require": {
+    "symfony/dependency-injection": "2.4.*",
+    "symfony/config": "2.4.*",
+    "symfony/yaml": "2.4.*"
+  },
+  "extra": {
+    "installer-name": "dic",
+    "branch-alias": {
+      "dev-master": "7.1.x-dev"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\dic\\": "src/"
+    }
+  }
+}
