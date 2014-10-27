@@ -1,0 +1,16 @@
+{
+  "name": "drupal/dic-example-module",
+  "description": "This module provides some examples using the dependency injection container module.",
+  "type": "drupal-module",
+  "extra": {
+    "installer-name": "dic_example",
+    "branch-alias": {
+      "dev-master": "7.1.x-dev"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\dic_example\\": "src/"
+    }
+  }
+}

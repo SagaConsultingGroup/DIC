@@ -1,0 +1,7 @@
+name = "Dependency Injection Container example module"
+description = "This module provides some examples using the dependency injection container module."
+package = "Custom"
+version = "7.x-1.0"
+core = "7.x"
+project = "dic_example"
+dependencies[] = dic

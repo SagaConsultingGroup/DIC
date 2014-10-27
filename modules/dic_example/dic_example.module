@@ -1,0 +1,16 @@
+<?php
+/**
+ * @file
+ * This file contains all the dic_example hook implementations.
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function dic_example_menu() {
+  $items = array();
+
+  $items += DIC::service('dic_example.mail_form')->buildMenu();
+
+  return $items;
+}
