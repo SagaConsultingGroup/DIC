@@ -13,14 +13,14 @@ function dic_admin_settings_form($form, &$form_state) {
     '#title' => t('Require'),
     '#type' => 'textarea',
     '#description' => t('Define extra composer require entries. These values should be formatted as package|version.'),
-    '#default_value' => create_textlist_from_array(variable_get('dic_require', array())),
+    '#default_value' => dic_create_textlist_from_array(variable_get('dic_require', array())),
   );
 
   $form['dic_repositories'] = array(
     '#title' => t('Repositories'),
     '#type' => 'textarea',
     '#description' => t('Define extra repositories. These values should be formatted as type|url.'),
-    '#default_value' => create_textlist_from_array(variable_get('dic_repositories', array())),
+    '#default_value' => dic_create_textlist_from_array(variable_get('dic_repositories', array())),
   );
 
   $form['dic_installer_paths'] = array(
@@ -29,7 +29,7 @@ function dic_admin_settings_form($form, &$form_state) {
     '#description' => t('Define extra installer paths. These values should be formatted as path|property.
                            <b>The paths you define here have to be relative to the composer file directory
                            you configured in the composer manager settings.</b>'),
-    '#default_value' => create_textlist_from_array(variable_get('dic_installer_paths', array())),
+    '#default_value' => dic_create_textlist_from_array(variable_get('dic_installer_paths', array())),
   );
 
   $form['submit'] = array(
@@ -82,7 +82,7 @@ function dic_create_array_from_textlist($text_list) {
  *
  * @return string
  */
-function create_textlist_from_array($list) {
+function dic_create_textlist_from_array($list) {
   $output = '';
   foreach ($list as $key => $value) {
     $output .= implode('|', array($key, $value)) . "\r\n";
