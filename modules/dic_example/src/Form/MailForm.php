@@ -87,9 +87,7 @@ class MailForm {
    * @param array $form
    * @param array $form_state
    */
-  public function validateForm($form, &$form_state) {
-
-  }
+  public function validateForm($form, &$form_state) {}
 
   /**
    * Form submit functionality.
