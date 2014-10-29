@@ -1,6 +1,6 @@
 {
   "name": "drupal/dic-module",
-  "description": "Provides the Dependency Injection Container module.",
+  "description": "This module provides the Dependency Injection Container integration.",
   "type": "drupal-module",
   "require": {
     "symfony/dependency-injection": "2.4.*",

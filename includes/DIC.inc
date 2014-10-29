@@ -43,7 +43,7 @@ class DIC {
    */
   public static function setContainer(ContainerInterface $container) {
     if (!is_null(static::$container)) {
-      throw new \Exception('You just killed a kitten...');
+      throw new \Exception('The container cannot be set twice...');
     }
     static::$container = $container;
   }

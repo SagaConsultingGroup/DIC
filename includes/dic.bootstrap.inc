@@ -13,6 +13,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  * Create Dependency Injection Container bootstrap functionality.
  */
 function dic_create_container() {
+  // TODO: make this path configurable.
   $container_folder = drupal_realpath('public://') . '/.container';
   $container_path = $container_folder . '/container.php';
 

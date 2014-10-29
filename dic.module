@@ -4,22 +4,23 @@
  * This file contains all the dic hook implementations.
  */
 
+// Also require the autoloader if drush is being used.
+if (php_sapi_name() == 'cli') {
+  dic_init();
+}
+
 /**
- * Implements hook_menu().
+ * Implements hook_init().
  */
-function dic_menu() {
-  $items = array();
-
-  $items['admin/config/system/dic'] = array(
-    'title' => 'Dependency Injection Container',
-    'description' => 'Dependency Injection Container settings.',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('dic_admin_settings_form'),
-    'access arguments' => array('administer site configuration'),
-    'file' => 'includes/dic.admin.inc',
-  );
-
-  return $items;
+function dic_init() {
+  static $registered = FALSE;
+  if (!$registered) {
+    $autoloader = DRUPAL_ROOT . '/vendor/autoload.php';
+    if (file_exists($autoloader)) {
+      $registered = TRUE;
+      require $autoloader;
+    }
+  }
 }
 
 /**
@@ -55,25 +56,5 @@ function dic_clear_container_cache() {
   $container_path = drupal_realpath('public://') . '/.container/container.php';
   if (file_exists($container_path)) {
     unlink($container_path);
-  }
-}
-
-/**
- * Add the configured settings to the composer.json file.
- *
- * @param array $json
- */
-function dic_composer_json_alter(&$json) {
-  $json['require'] = array_merge(variable_get('dic_require', array()), $json['require']);
-
-  foreach (variable_get('dic_repositories', array()) as $type => $url) {
-    $json['repositories'][] = array(
-      'type' => $type,
-      'url' => $url,
-    );
-  }
-
-  foreach (variable_get('dic_installer_paths', array()) as $path => $property) {
-    $json['extra']['installer-paths'][$path] = $property;
   }
 }
