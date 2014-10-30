@@ -17,4 +17,4 @@ This module provides an easy to understand example of how the DIC module can be 
 This module is sponsored by [Saga Consulting Group](http://www.saga.be "Saga Consulting Group").
 
 ## License
-This module is licensed under GPLv2. See LICENCE file for more information.
+This module is licensed under GENERAL PUBLIC LICENSE Version 2, June 1991. See the bundled LICENSE file for details.
