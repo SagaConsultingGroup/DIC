@@ -10,8 +10,8 @@ Using this Drupal module, you can use the Symfony Dependency Injection Container
 {
   "require": {
     "php": ">=5.3.0",
-    "composer/installers": "1.0.*",
-    "saga/dic-module": "7.1.*"
+    "composer/installers": "~1.0",
+    "saga/dic-module": "~7.1"
   },
   "extra": {
     "installer-paths": {
