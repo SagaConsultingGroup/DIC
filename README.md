@@ -24,6 +24,12 @@ Using this Drupal module, you can use the Symfony Dependency Injection Container
 - The DIC module will now be available in "sites/all/modules/vendor/dic" and is ready to be installed using the regular module installation procedure.
 - Make sure that the "/vendor" and "sites/*/modules/vendor" folders are added to the .gitignore, you don't want these folders in your VCS.
 
+## Creating custom modules
+If you want to create custom modules that use the DIC module, make sure that the classes in your module are autoloaded correctly. You can use several methods to do this:
+
+- Using the [Composer autoload functionality](https://getcomposer.org/doc/01-basic-usage.md#autoloading "Composer autoload functionality")
+- Using the [xautoload](https://www.drupal.org/project/xautoload "xautoload") Drupal module
+
 ## Submodules
 ### DIC - Composer Manager (experimental!)
 By default, the DIC module expects you to handle composer integration yourself. If you want to rely on the [Composer Manager](https://www.drupal.org/project/composer_manager "Composer Manager") module for this task, you can enable this module to help you with this. You can for example configure extra requirements, repositories... that will be added to the generated composer.json.
