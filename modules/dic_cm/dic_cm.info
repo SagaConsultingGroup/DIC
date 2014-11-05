@@ -1,9 +1,0 @@
-name = "DIC - Composer Manager"
-description = "This module provides Composer Manager integration for the DIC module."
-package = "DIC"
-version = "7.x-1.0"
-core = "7.x"
-project = "dic_cm"
-dependencies[] = dic
-dependencies[] = composer_manager
-configure = admin/config/system/dic

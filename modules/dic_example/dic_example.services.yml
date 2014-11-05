@@ -1,6 +1,0 @@
-parameters:
-  dic_example.mail_form.class: Drupal\dic_example\Form\MailForm
-
-services:
-  dic_example.mail_form:
-    class: "%dic_example.mail_form.class%"
