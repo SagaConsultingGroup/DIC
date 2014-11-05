@@ -3,9 +3,9 @@
   "description": "This module provides the Dependency Injection Container integration in Drupal 7.",
   "type": "drupal-module",
   "require": {
-    "symfony/dependency-injection": "2.4.*",
-    "symfony/config": "2.4.*",
-    "symfony/yaml": "2.4.*"
+    "symfony/dependency-injection": "~2.4",
+    "symfony/config": "~2.4",
+    "symfony/yaml": "~2.4"
   },
   "extra": {
     "installer-name": "dic",
