@@ -1,6 +1,6 @@
 {
-  "name": "drupal/dic-module",
-  "description": "This module provides the Dependency Injection Container integration.",
+  "name": "saga/dic-module",
+  "description": "This module provides the Dependency Injection Container integration in Drupal 7.",
   "type": "drupal-module",
   "require": {
     "symfony/dependency-injection": "2.4.*",
