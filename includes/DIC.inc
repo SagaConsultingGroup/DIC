@@ -28,24 +28,10 @@ class DIC {
    */
   private static function boot() {
     if (!self::$booted) {
-      require_once __DIR__ . '/dic.bootstrap.inc';
-      dic_create_container();
+      $builder = new \Drupal\dic\DICBuilder();
+      static::$container = $builder->build();
       self::$booted = TRUE;
     }
-  }
-
-  /**
-   * Sets a new global container.
-   *
-   * @param ContainerInterface $container
-   *   A new container instance to replace the current.
-   * @throws Exception
-   */
-  public static function setContainer(ContainerInterface $container) {
-    if (!is_null(static::$container)) {
-      throw new \Exception('The container cannot be set twice...');
-    }
-    static::$container = $container;
   }
 
   /**
