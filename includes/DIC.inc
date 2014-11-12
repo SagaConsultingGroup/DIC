@@ -28,7 +28,7 @@ class DIC {
    */
   private static function boot() {
     if (!self::$booted) {
-      $builder = new \Drupal\dic\DICBuilder();
+      $builder = new \Drupal\dic\DICBuilder(DRUPAL_ROOT, drupal_realpath('public://') . '/.container/container.php');
       static::$container = $builder->build();
       self::$booted = TRUE;
     }

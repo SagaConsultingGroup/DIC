@@ -18,12 +18,20 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class DICBuilder {
 
   /**
-   * @var string The path where container will be located.
+   * @var string
+   * The path where container will be located.
    */
-  private $path;
+  private $container_path;
 
-  public function __construct() {
-    $this->path = drupal_realpath('public://') . '/.container/container.php';
+  /**
+   * @var string
+   * The root path of the project.
+   */
+  private $root_path;
+
+  public function __construct($root_path, $container_path) {
+    $this->container_path = $container_path;
+    $this->root_path = $root_path;
   }
 
   /**
@@ -32,7 +40,7 @@ class DICBuilder {
    * @return ContainerInterface
    */
   public function build() {
-    $container = $this->loadCache($this->path);
+    $container = $this->loadCache($this->container_path);
 
     if ($container) {
       return $container;
@@ -41,7 +49,7 @@ class DICBuilder {
     $container = $this->createContainer();
 
     $this->compileContainer($container);
-    $this->cacheContainer($container, $this->path);
+    $this->cacheContainer($container, $this->container_path);
 
     return $container;
   }
@@ -88,10 +96,10 @@ class DICBuilder {
     // Build service paths.
     // TODO: support even more levels.
     $patterns = array(
-      DRUPAL_ROOT . '/sites/*/modules/*/*.services.yml',
-      DRUPAL_ROOT . '/sites/*/modules/*/modules/*/*.services.yml',
-      DRUPAL_ROOT . '/sites/*/modules/*/*/*.services.yml',
-      DRUPAL_ROOT . '/sites/*/modules/*/*/modules/*/*.services.yml',
+      $this->root_path . '/sites/*/modules/*/*.services.yml',
+      $this->root_path . '/sites/*/modules/*/modules/*/*.services.yml',
+      $this->root_path . '/sites/*/modules/*/*/*.services.yml',
+      $this->root_path . '/sites/*/modules/*/*/modules/*/*.services.yml',
     );
 
     // TODO: only use enabled modules.

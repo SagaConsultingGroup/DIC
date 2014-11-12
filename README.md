@@ -1,4 +1,7 @@
 # DIC - Dependency Injection Container
+
+[![Build Status](https://travis-ci.org/SagaConsultingGroup/DIC.svg)](https://travis-ci.org/SagaConsultingGroup/DIC)
+
 Using this Drupal module, you can use the Symfony Dependency Injection Container in your Drupal 7 modules. This will help you writing custom Drupal modules in a more object-oriented, future-proof and maintainable way.
 
 [Composer](https://getcomposer.org/ "Composer") is required in your project and this module expects a composer.json file in the root of your Drupal installation.
