@@ -5,7 +5,7 @@
  */
 
 // Also require the autoloader if drush is being used.
-if (php_sapi_name() == 'cli') {
+if (drupal_is_cli()) {
   dic_init();
 }
 
