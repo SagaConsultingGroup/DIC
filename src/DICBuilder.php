@@ -88,6 +88,8 @@ class DICBuilder {
     // Build service paths.
     // TODO: support even more levels.
     $patterns = array(
+      DRUPAL_ROOT . '/sites/*/modules/*/*.services.yml',
+      DRUPAL_ROOT . '/sites/*/modules/*/modules/*/*.services.yml',
       DRUPAL_ROOT . '/sites/*/modules/*/*/*.services.yml',
       DRUPAL_ROOT . '/sites/*/modules/*/*/modules/*/*.services.yml',
     );
