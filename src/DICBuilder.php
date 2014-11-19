@@ -18,20 +18,20 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class DICBuilder {
 
   /**
-   * @var string
-   * The path where container will be located.
+   * @var array
+   *   The paths to the services.yml configs.
    */
-  private $container_path;
+  private $service_paths;
 
   /**
    * @var string
-   * The root path of the project.
+   *   The path where container will be located.
    */
-  private $root_path;
+  private $container_path;
 
-  public function __construct($root_path, $container_path) {
+  public function __construct($service_paths, $container_path) {
+    $this->service_paths = $service_paths;
     $this->container_path = $container_path;
-    $this->root_path = $root_path;
   }
 
   /**
@@ -80,39 +80,11 @@ class DICBuilder {
     $container = new ContainerBuilder();
 
     $loader = new YamlFileLoader($container, new FileLocator());
-    foreach ($this->getConfigPaths() as $path) {
+    foreach ($this->service_paths as $path) {
       $loader->load($path);
     }
 
     return $container;
-  }
-
-  /**
-   * Get the paths for all service definition files.
-   *
-   * @return array
-   */
-  private function getConfigPaths() {
-    // Build service paths.
-    // TODO: support even more levels.
-    $patterns = array(
-      $this->root_path . '/sites/*/modules/*/*.services.yml',
-      $this->root_path . '/sites/*/modules/*/modules/*/*.services.yml',
-      $this->root_path . '/sites/*/modules/*/*/*.services.yml',
-      $this->root_path . '/sites/*/modules/*/*/modules/*/*.services.yml',
-    );
-
-    // TODO: only use enabled modules.
-    $paths = array();
-    foreach ($patterns as $pattern) {
-      if ($module_paths = glob($pattern)) {
-        foreach ($module_paths as $module_path) {
-          $paths[] = $module_path;
-        }
-      }
-    }
-
-    return $paths;
   }
 
   /**
