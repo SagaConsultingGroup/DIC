@@ -28,7 +28,7 @@ class DIC {
    */
   private static function boot() {
     if (!self::$booted) {
-      $builder = new \Drupal\dic\DICBuilder(DRUPAL_ROOT, drupal_realpath('public://') . '/.container/container.php');
+      $builder = new \Drupal\dic\DICBuilder(self::getServicePaths(), drupal_realpath('public://') . '/.container/container.php');
       static::$container = $builder->build();
       self::$booted = TRUE;
     }
@@ -63,5 +63,27 @@ class DIC {
   public static function hasService($id) {
     self::boot();
     return static::$container && static::$container->has($id);
+  }
+
+  /**
+   * Get the paths for all service definition files.
+   *
+   * @return array
+   */
+  private static function getServicePaths() {
+    $paths = array();
+    $extensions = system_list('module_enabled');
+    foreach ($extensions as $extension_name => $extension) {
+      // Check if the extension is not part of core.
+      if (strpos($extension->filename, 'sites') === 0) {
+        $module_path = substr($extension->filename, 0, strrpos($extension->filename, '/'));
+        $service_path = DRUPAL_ROOT . "/$module_path/$extension_name.services.yml";
+        if (file_exists($service_path)) {
+          $paths[] = $service_path;
+        }
+      }
+    }
+
+    return $paths;
   }
 }
