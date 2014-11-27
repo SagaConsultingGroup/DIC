@@ -1,6 +1,6 @@
 # DIC - Dependency Injection Container
 
-[![Build Status](https://travis-ci.org/SagaConsultingGroup/DIC.svg)](https://travis-ci.org/SagaConsultingGroup/DIC)
+[![Build Status](https://travis-ci.org/SagaConsultingGroup/DIC.svg)](https://travis-ci.org/SagaConsultingGroup/DIC) [![Latest Stable Version](https://poser.pugx.org/saga/dic-module/v/stable.svg)](https://packagist.org/packages/saga/dic-module) [![Total Downloads](https://poser.pugx.org/saga/dic-module/downloads.svg)](https://packagist.org/packages/saga/dic-module) [![Latest Unstable Version](https://poser.pugx.org/saga/dic-module/v/unstable.svg)](https://packagist.org/packages/saga/dic-module)
 
 Using this Drupal module, you can use the Symfony Dependency Injection Container in your Drupal 7 modules. This will help you writing custom Drupal modules in a more object-oriented, future-proof and maintainable way.
 
