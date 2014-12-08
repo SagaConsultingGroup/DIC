@@ -32,6 +32,7 @@ If you want to create custom modules that use the DIC module, make sure that the
 
 - Using the [Composer autoload functionality](https://getcomposer.org/doc/01-basic-usage.md#autoloading "Composer autoload functionality")
 - Using the [xautoload](https://www.drupal.org/project/xautoload "xautoload") Drupal module
+- Using the [registry_autoload](https://www.drupal.org/project/registry_autoload "registry_autoload") Drupal module
 
 ## Sponsors
 This module is sponsored by [Saga Consulting Group](http://www.saga.be "Saga Consulting Group").
