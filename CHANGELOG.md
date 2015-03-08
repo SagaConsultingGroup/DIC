@@ -1,5 +1,8 @@
 # Changelog
 
+## 7.1.3 (2015-03-08)
+ - Composer autoload file is now included on boot, not on init.
+
 ## 7.1.2 (2014-11-24)
  - Only services of enabled (non-core) modules are now loaded.
  - drupal_is_cli is used instead of php_sapi_name.
