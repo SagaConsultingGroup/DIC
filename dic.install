@@ -1,0 +1,18 @@
+<?php
+/**
+ * @file
+ * This file contains all the dic install and update functionality.
+ */
+
+/**
+ * Set bootstrap flag.
+ */
+function dic_update_7101(&$sandbox) {
+  $num_updated = db_update('system')
+    ->fields(array('bootstrap' => 1))
+    ->condition('name', 'dic', '=')
+    ->condition('type', 'module', '=')
+    ->execute();
+
+  cache_clear_all('bootstrap_modules', 'cache_bootstrap');
+}

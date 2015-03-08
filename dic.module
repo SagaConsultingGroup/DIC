@@ -6,13 +6,13 @@
 
 // Also require the autoloader if drush is being used.
 if (drupal_is_cli()) {
-  dic_init();
+  dic_boot();
 }
 
 /**
- * Implements hook_init().
+ * Implements hook_boot().
  */
-function dic_init() {
+function dic_boot() {
   static $registered = FALSE;
   if (!$registered) {
     $autoloader = DRUPAL_ROOT . '/vendor/autoload.php';
