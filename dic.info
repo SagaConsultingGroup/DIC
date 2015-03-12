@@ -5,3 +5,4 @@ version = "7.x-1.3"
 core = "7.x"
 project = "dic"
 files[] = includes/DIC.inc
+files[] = includes/dic.drush.inc
