@@ -1,4 +1,7 @@
 # Changelog
+## 7.1.4 (2015-03-26)
+ - Added Drush integration for clearing the container cache (drush cc dic).
+ - Added a rebuild function to force a container rebuild. This can be very useful in installation hooks.
 
 ## 7.1.3 (2015-03-08)
  - Composer autoload file is now included on boot, not on init.
