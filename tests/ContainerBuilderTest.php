@@ -41,5 +41,13 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase {
     $container = $builder->build();
 
     $this->assertFileExists($this->getContainerPath());
+
+    $this->assertInstanceOf('Symfony\Component\DependencyInjection\ContainerInterface', $container);
+    $this->assertInstanceOf('Symfony\Component\DependencyInjection\ContainerBuilder', $container);
+
+    $containerRebuild = $builder->build();
+
+    $reflection = new \ReflectionClass($containerRebuild);
+    $this->assertEquals($this->getContainerPath(), $reflection->getFileName());
   }
 }
