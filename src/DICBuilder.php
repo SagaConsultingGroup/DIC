@@ -62,6 +62,8 @@ class DICBuilder {
       $container = $this->createContainer();
       $this->compileContainer($container);
       $this->cacheContainer($cache, $container, $class);
+
+      return $container;
     }
 
     require_once $cache;

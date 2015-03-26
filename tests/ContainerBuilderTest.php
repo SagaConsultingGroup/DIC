@@ -41,8 +41,5 @@ class ContainerBuilderTest extends \PHPUnit_Framework_TestCase {
     $container = $builder->build();
 
     $this->assertFileExists($this->getContainerPath());
-
-    $reflection = new \ReflectionClass($container);
-    $this->assertEquals($this->getContainerPath(), $reflection->getFileName());
   }
 }
