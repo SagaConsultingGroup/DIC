@@ -35,6 +35,15 @@ class DIC {
   }
 
   /**
+   * Force the container to be built again.
+   */
+  public static function reboot() {
+    dic_clear_container_cache();
+    self::$booted = FALSE;
+    self::boot();
+  }
+
+  /**
    * Retrieves a service from the container.
    *
    * Use this method if the desired service is not one of those with a dedicated
