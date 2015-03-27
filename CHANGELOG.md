@@ -1,4 +1,7 @@
 # Changelog
+## 7.1.5 (2015-03-27)
+ - Fetched service paths can now be altered by hook_dic_service_paths_alter.  
+
 ## 7.1.4 (2015-03-26)
  - Added Drush integration for clearing the container cache (drush cc dic).
  - Added a rebuild function to force a container rebuild. This can be very useful in installation hooks.

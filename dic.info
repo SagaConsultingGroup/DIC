@@ -1,7 +1,7 @@
 name = "DIC - Dependency Injection Container"
 description = "This module provides the Dependency Injection Container integration."
 package = "DIC"
-version = "7.x-1.4"
+version = "7.x-1.5"
 core = "7.x"
 project = "dic"
 files[] = includes/DIC.inc
