@@ -93,6 +93,8 @@ class DIC {
       }
     }
 
+    drupal_alter('dic_service_paths', $paths);
+
     return $paths;
   }
 }
