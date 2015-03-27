@@ -1,2 +1,4 @@
 /vendor
 /composer.lock
+/tests/Resources/.container/*
+!/tests/Resources/.container/.gitkeep
