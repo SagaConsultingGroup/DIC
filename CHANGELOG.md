@@ -1,4 +1,7 @@
 # Changelog
+## 7.1.6 (2015-06-03)
+ - Replace deprecated ConfigCache toString method with getPath method. 
+
 ## 7.1.5 (2015-03-27)
  - Fetched service paths can now be altered by hook_dic_service_paths_alter.  
 
