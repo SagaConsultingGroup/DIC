@@ -1,4 +1,8 @@
 # Changelog
+
+## 7.1.7 (2015-09-01)
+ - Lock Symfony component versions on 2.6 because the PHP version requirement goes up from 2.7.
+
 ## 7.1.6 (2015-06-03)
  - Replace deprecated ConfigCache toString method with getPath method. 
 
