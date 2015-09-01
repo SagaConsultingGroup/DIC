@@ -66,7 +66,7 @@ class DICBuilder {
       return $container;
     }
 
-    require_once $cache->getPath();
+    require_once $cache;
 
     $container = new $class();
 
