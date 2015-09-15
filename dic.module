@@ -57,4 +57,5 @@ function dic_clear_container_cache() {
   if (file_exists($container_path)) {
     unlink($container_path);
   }
+  cache_clear_all('dic_service_paths', 'cache_bootstrap');
 }

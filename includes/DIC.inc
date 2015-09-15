@@ -80,6 +80,11 @@ class DIC {
    * @return array
    */
   private static function getServicePaths() {
+    $cached = cache_get('dic_service_paths', 'cache_bootstrap');
+    if ($cached) {
+      return $cached->data;
+    }
+
     $paths = array();
     $extensions = system_list('module_enabled');
     foreach ($extensions as $extension_name => $extension) {
@@ -94,6 +99,7 @@ class DIC {
     }
 
     drupal_alter('dic_service_paths', $paths);
+    cache_set('dic_service_paths', $paths, 'cache_bootstrap');
 
     return $paths;
   }
