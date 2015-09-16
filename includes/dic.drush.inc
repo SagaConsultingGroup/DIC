@@ -11,7 +11,7 @@ function dic_drush_command() {
   $items = array();
 
   $items['dic-container-build'] = array(
-    'description' => 'Build the container',
+    'description' => dt('Build the container.'),
     'aliases' => array('dic-cb'),
   );
 
@@ -22,17 +22,7 @@ function dic_drush_command() {
  * Adds a cache clear option for DIC.
  */
 function dic_drush_cache_clear(&$types) {
-  $types['dic'] = 'dic_invalidate_container_cache';
-}
-
-/**
- * Remove the DIC cache file.
- */
-function dic_invalidate_container_cache() {
-  $path = drupal_realpath('public://') . '/.container/container.php';
-  if (is_file($path)) {
-    unlink($path);
-  }
+  $types['dic'] = 'dic_clear_container_cache';
 }
 
 /**
